@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+
+  <title>경제 MBTI 테스트</title>
+  <style>
+    body {
+  font-family: '나눔고딕', sans-serif;
+  background-color: #f8f8f8;
+  color: #444;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  display: none;
+  margin-top: 50px;
+}
+
+#page1 {
+  display: block;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #3366cc;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #3366cc;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="page" id="page1">
+   <h1>경제 MBTI 테스트</h1>
+   <button onclick="nextPage(1)">검사 시작</button>
+ </div>  
+
+    <div class="page" id=page2>
+        <h2>1. 광고를 보고 제품을 구매한 이유가 광고의 영향이었나요?</h2>
+        <button onclick="nextPage(2,'p')">예</button>
+        <button onclick="nextPage(2,'a')">아니오</button>
+</div>
+    <div class="page" id=page3>
+        <h2>2. 제품 구매 전 다른 소비자들의 리뷰나 평가를 찾아본 적이 있나요?</h2>
+        <button onclick="nextPage(3,'a')">예</button>
+        <button onclick="nextPage(3,'p')">아니오</button>
+</div>
+    <div class="page" id=page4>
+        <h2>3. 소비 결정을 할 때 광고의 내용과 제품의 기능 및 품질을 평가하는 자신만의 기준이 있나요?</h2>
+        <button onclick="nextPage(4,'a')">예</button>
+        <button onclick="nextPage(4,'p')">아니오</button>
+</div>
+    <div class="page" id=page5>
+        <h2>4. 구매를 결정하기 전에 계획을 세우거나 예산을 고려하나요?</h2>
+     <button onclick="nextPage(5,'d')">예</button>
+     <button onclick="nextPage(5,'h')">아니오</button>
+</div>
+    <div class="page" id=page6>
+        <h2>5. 구매를 결정하기 전에 가격, 품질, 기능 등 다양한 요소를 고려한 적이 있나요?</h2>
+        <button onclick="nextPage(6,'d')">예</button>
+        <button onclick="nextPage(6,'h')">아니오</button>
+</div>
+    <div class="page" id=page7>
+        <h2>6. 자신이 원하는 제품이나 서비스를 갖기 위해 저축이나 예산 조절을 하는 경우가 많나요?</h2>
+        <button onclick="nextPage(7,'d')">예</button>
+        <button onclick="nextPage(7,'h')">아니오</button>
+</div>
+    <div class="page" id=page8>
+        <h2>7. 제품이나 서비스를 구매할 때 양에 대한 요소를 주로 고려하시나요?</h2>
+        <button onclick="nextPage(8,'b')">예</button>
+        <button onclick="nextPage(8,'q')">아니오</button>
+</div>
+    <div class="page" id=page9>
+        <h2>8. 제품이나 서비스를 구매할 때 가격 대비 양을 고려하여 가치를 판단하시나요?</h2>
+        <button onclick="nextPage(9,'b')">예</button>
+        <button onclick="nextPage(9,'q')">아니오</button>
+</div>
+    <div class="page" id=page10>
+        <h2>9. 제품이나 서비스의 품질에 대한 정보를 얻기 위해 리뷰, 평가, 품질 인증 등을 중시하시나요?</h2>
+        <button onclick="nextPage(10,'q')">예</button>
+        <button onclick="nextPage(10,'b')">아니오</button>
+</div>
+    <div class="page" id=page11>
+        <h2>10. 제품이나 서비스를 구매할 때 주로 할인 행사나 혜택을 찾으시나요?</h2>
+        <button onclick="nextPage(11,'s')">예</button>
+        <button onclick="nextPage(11,'e')">아니오</button>
+</div>
+    <div class="page" id=page12>
+        <h2>11. 일상적인 소비에서 가격이 비싼 제품이나 서비스를 피하려고 노력하시나요?</h2>
+        <button onclick="nextPage(12,'s')">예</button>
+        <button onclick="nextPage(12,'e')">아니오</button>
+</div>
+    <div class="page" id=page13>
+        <h2>12. 제품이나 서비스를 구매할 때 가격에 대한 비교를 자주 하시나요?</h2>
+        <button onclick="nextPage(13,'s')">예</button>
+        <button onclick="nextPage(13,'e')">아니오</button>
+
+
+<script>
+   
+   let answers = {
+      a: 0, p: 0, h: 0, d: 0, b: 0, q: 0, f: 0, e: 0
+    };
+
+    function nextPage(pageNum, answer) {
+      // 현재 페이지 숨기기
+      document.getElementById(`page${pageNum}`).style.display = 'none';
+
+      // 답 저장 및 특성에 따라 점수 부여
+      if (answer !== null) {
+        answers[answer]++;
+      }
+
+      // 다음 페이지 보이기
+      if (document.getElementById(`page${pageNum + 1}`)) {
+        document.getElementById(`page${pageNum + 1}`).style.display = 'block';
+      } else {
+        // 마지막 페이지인 경우 결과 생성
+        generateResult();
+      }
+    }
+
+    function generateResult() {
+      // 결과 가져오기
+      let sortedResults = Object.keys(answers).sort((a, b) => answers[b] - answers[a]);
+
+      // 상위 4가지 알파벳 추출
+      let top4 = sortedResults.slice(0, 4);
+
+      // 결과 페이지 동적으로 생성
+      let resultPage = document.createElement('div');
+      resultPage.innerHTML = `<h1>당신의 MBTI 결과는 ${top4.join(", ")}입니다!</h1>`;
+
+      // 결과 페이지를 body에 추가
+      document.body.appendChild(resultPage);
+    }
+        function resetForm() {
+      // 답변 배열 초기화
+      answers = {
+        a: 0, p: 0, h: 0, d: 0, b: 0, q: 0, f: 0, e: 0
+      };
+
+      // 모든 페이지를 숨기기
+      for (let i = 1; i <= 13; i++) {
+        document.getElementById(`page${i}`).style.display = 'none';
+      }
+
+      // 첫 번째 페이지만 표시
+      document.getElementById('page1').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
