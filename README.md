@@ -1,1 +1,0 @@
-# investiment_mbti
